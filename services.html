@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>
+    // Apply the saved language before the page paints; main.js translates content before revealing it.
+    (function () {
+      var lang = 'en';
+      try { lang = localStorage.getItem('portfolioLanguage') === 'ru' ? 'ru' : 'en'; } catch (_) {}
+      document.documentElement.lang = lang;
+      document.documentElement.classList.add('lang-pending');
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0e12">
+  <meta name="description" content="Услуги веб-разработки и интерактивный калькулятор стоимости проекта.">
+  <title>Услуги и прайс — Zuravlov</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/style.css">
+  <!-- Пометка: Измени title, description и имя на свое в VS Code -->
+</head>
+<body>
+
+<header class="site-header">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="h-[72px] flex items-center justify-between gap-5">
+      <a href="index.html" class="font-bold tracking-tight text-lg"><span class="brand-dot"></span>Zuravlov<span class="gradient-text">.dev</span></a>
+      <nav class="desktop-nav hidden md:flex items-center gap-7 text-sm" aria-label="Main navigation">
+        <a data-nav href="index.html" class="nav-link">Главная</a>
+        <a data-nav href="services.html" class="nav-link">Услуги и прайс</a>
+        <a data-nav href="contacts.html" class="nav-link">Контакты</a>
+      </nav>
+      <div class="language-switch" role="group" aria-label="Language selector"><button type="button" data-language="en" class="language-option active" aria-pressed="true">EN</button><span></span><button type="button" data-language="ru" class="language-option" aria-pressed="false">RU</button></div>
+      <button data-menu-toggle class="md:hidden btn btn-secondary !p-2.5" aria-label="Открыть меню" aria-expanded="false">☰</button>
+    </div>
+    <nav data-mobile-menu class="hidden md:hidden pb-4 flex-col gap-4 text-sm">
+      <a data-nav href="index.html" class="nav-link">Главная</a>
+      <a data-nav href="services.html" class="nav-link">Услуги и прайс</a>
+      <a data-nav href="contacts.html" class="nav-link">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-5 pt-16 md:pt-24">
+  <div class="max-w-3xl"><div class="eyebrow">Services / Transparent pricing</div><h1 class="text-4xl md:text-6xl font-semibold tracking-tight mt-4">Понятный процесс.<br><span class="gradient-text">Прозрачная стоимость.</span></h1><p class="muted text-lg mt-5 leading-relaxed">Выбери тип задачи, объём и дополнительные опции — калькулятор покажет предварительную оценку. Финальная цена зависит от технического задания.</p></div>
+  <!-- NEW: Service categories. Keep this section inside Services & Pricing, before the calculator. -->
+  <section class="mt-12" aria-labelledby="services-heading">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+      <div><div class="eyebrow">What I can build</div><h2 id="services-heading" class="text-3xl md:text-4xl font-semibold mt-3">Services built around your goals</h2></div>
+      <p class="muted max-w-xl">Practical web solutions, clean implementation and transparent scope — without unnecessary complexity.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-4">
+      <article class="service-card panel panel-hover p-6 reveal"><div class="service-icon">01</div><div class="eyebrow mt-5">Web Development</div><h3 class="text-xl font-semibold mt-3">Landing pages</h3><p class="muted mt-3 leading-relaxed">Modern single-page websites with a clear structure, polished visual hierarchy, accessible markup and launch-ready files.</p><ul class="service-points mt-5"><li>Focused landing page structure</li><li>Clear content hierarchy and calls to action</li><li>Basic SEO and deployment support</li></ul><div class="service-price mt-5 text-cyan-300 font-semibold">From $30 / landing page</div></article>
+      <article class="service-card panel panel-hover p-6 reveal"><div class="service-icon">02</div><div class="eyebrow mt-5">Multi-page Websites</div><h3 class="text-xl font-semibold mt-3">A website that grows with you</h3><p class="muted mt-3 leading-relaxed">Well-structured multi-page websites with consistent navigation, responsive layouts and maintainable HTML/CSS.</p><ul class="service-points mt-5"><li>Multiple connected pages</li><li>Consistent navigation and visual style</li><li>Responsive layout and cross-browser checks</li></ul><div class="service-price mt-5 text-cyan-300 font-semibold">From $35 / page</div></article>
+      <article class="service-card panel panel-hover p-6 reveal"><div class="service-icon">03</div><div class="eyebrow mt-5">Interactive UI &amp; Logic</div><h3 class="text-xl font-semibold mt-3">Interfaces that respond</h3><p class="muted mt-3 leading-relaxed">Lightweight JavaScript interactions, custom forms, animations, calculators and dynamic UI elements designed to feel natural.</p><ul class="service-points mt-5"><li>Forms and client-side validation</li><li>Interactive widgets and calculators</li><li>Micro-interactions and UI states</li></ul><div class="service-price mt-5 text-cyan-300 font-semibold">From $25 / task</div></article>
+    </div>
+    <div class="panel p-6 md:p-8 mt-5 reveal">
+      <div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
+        <div class="max-w-xl"><div class="eyebrow">My toolkit</div><h3 class="text-2xl font-semibold mt-3">A focused, practical stack</h3><p class="muted mt-3 leading-relaxed">The right tools for fast, lightweight websites — with an emphasis on maintainability, accessibility and responsive behavior.</p></div>
+        <div class="stack-list"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Git</span><span>Responsive Design</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid lg:grid-cols-[1fr_.85fr] gap-5 mt-10 items-start">
+    <div class="panel p-6 md:p-8" data-calculator>
+      <div class="flex items-center justify-between gap-4"><h2 class="text-xl font-semibold">Калькулятор проекта</h2><span class="tag">USD · estimate</span></div>
+      <div class="mt-6"><div class="text-sm muted mb-3">Быстрый выбор сценария</div><div class="flex flex-wrap gap-2"><button type="button" class="filter-btn" data-preset="landing">Лендинг</button><button type="button" class="filter-btn" data-preset="multipage">Сайт на несколько страниц</button><button type="button" class="filter-btn" data-preset="script">Автоматизация</button><button type="button" class="filter-btn" data-preset="fixes">Исправить код</button></div></div>
+      <div class="mt-7 calculator-field calculator-service-field"><label for="service" class="block mb-2">Тип услуги</label><select id="service" name="service" class="calculator-service-select"><option value="landing">Лендинг — от $30</option><option value="multipage">Многостраничный сайт — от $35 за страницу</option><option value="script">Скрипт / автоматизация — от $25 за блок работ</option><option value="fixes">Исправление ошибок — от $15 за блок работ</option></select></div>
+      <div class="mt-7 calculator-field" data-quantity-control>
+        <label for="quantity" class="block mb-3 text-center">Количество страниц / экранов</label>
+        <input class="calculator-centered-input" id="quantity" name="quantity" type="number" min="1" max="15" step="1" value="3" inputmode="numeric" required aria-describedby="quantity-help">
+        <input class="mobile-quantity-slider" id="quantity-slider" type="range" min="1" max="15" step="1" value="3" aria-label="Number of pages" aria-controls="quantity">
+        <p id="quantity-help" class="text-xs muted mt-2 text-center">Enter a whole number from 1 to 15.</p>
+      </div>
+      <div class="mt-7"><div class="font-medium mb-3" data-extras-heading>Дополнительные опции</div><div class="grid sm:grid-cols-2 gap-3">
+        <label data-extra="responsive" class="flex items-start gap-3 panel p-3"><input type="checkbox" name="extra" value="responsive" class="mt-1"><span><span class="block">Адаптивная версия</span><small class="muted">+ $8</small></span></label>
+        <label data-extra="seo" class="flex items-start gap-3 panel p-3"><input type="checkbox" name="extra" value="seo" class="mt-1"><span><span class="block">Базовая SEO-настройка</span><small class="muted">+ $7</small></span></label>
+        <label data-extra="urgent" class="flex items-start gap-3 panel p-3"><input type="checkbox" name="extra" value="urgent" class="mt-1"><span><span class="block">Срочный срок</span><small class="muted">+ $15</small></span></label>
+        <label data-extra="animation" class="flex items-start gap-3 panel p-3"><input type="checkbox" name="extra" value="animation" class="mt-1"><span><span class="block">Микроанимации</span><small class="muted">+ $6</small></span></label>
+      </div></div>
+      <div class="border-t border-white/10 mt-7 pt-6"><div class="text-sm muted">Предварительная стоимость</div><div class="price-number text-4xl md:text-5xl font-semibold mt-2 gradient-text" data-price>$</div><p class="muted text-xs mt-2" data-breakdown>Стоимость рассчитывается автоматически</p><button type="button" data-order class="btn w-full mt-6">Заказать с этими параметрами ↗</button><p class="muted text-xs mt-3">Нажимая кнопку, ты сохраняешь конфигурацию в этом браузере и переходишь к контактам.</p></div>
+    </div>
+    <div class="space-y-4">
+      <article class="panel p-6 reveal"><div class="eyebrow">01 / Websites</div><h3 class="text-xl font-semibold mt-3">Сайты и лендинги</h3><p class="muted mt-2 leading-relaxed">Структура, дизайн-система, адаптивная вёрстка, интерактивные элементы и подготовка к публикации.</p><div class="mt-4 text-cyan-300 font-semibold">от $30 / лендинг</div></article>
+      <article class="panel p-6 reveal"><div class="eyebrow">02 / Code care</div><h3 class="text-xl font-semibold mt-3">Исправления и оптимизация</h3><p class="muted mt-2 leading-relaxed">Поиск причин ошибок, улучшение производительности, рефакторинг и проверка на разных экранах.</p><div class="mt-4 text-cyan-300 font-semibold">от $15 / задача</div></article>
+      <article class="panel p-6 reveal"><div class="eyebrow">03 / Automation</div><h3 class="text-xl font-semibold mt-3">Скрипты и интеграции</h3><p class="muted mt-2 leading-relaxed">Утилиты, небольшие автоматизации и связка сервисов там, где можно сэкономить время.</p><div class="mt-4 text-cyan-300 font-semibold">от $25 / задача</div></article>
+      <div class="rounded-xl border border-violet-300/20 bg-violet-300/5 p-5 text-sm muted leading-relaxed">Это предварительная оценка, а не фиксированная оферта. После заявки уточним объём, сроки и технические детали. </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer mt-24">
+  <div class="max-w-6xl mx-auto px-5 py-8 flex flex-col sm:flex-row gap-4 justify-between text-sm">
+    <p>© <span data-year></span> <!-- Пометка: Измени это имя на свое в VS Code --> Zuravlov. Сделано с вниманием к деталям.</p>
+    <div class="flex gap-5"><a href="https://t.me/IvanZuravlov1" target="_blank" rel="noreferrer">Telegram ↗</a><a href="mailto:mypcworkprofile@gmail.com">Почта ↗</a></div>
+  </div>
+</footer>
+<script>document.querySelectorAll('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());</script>
+<script src="assets/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+:root{--bg:#0d0e12;--panel:#14161d;--panel2:#191c25;--text:#f2f4f8;--muted:#9ba3b4;--cyan:#5efce8;--purple:#a78bfa;--line:rgba(255,255,255,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}.muted{color:var(--muted)}.mono{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
+.site-header{position:sticky;top:0;z-index:50;background:rgba(13,14,18,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav-link{color:#aab1c0;transition:color .2s}.nav-link:hover,.nav-link.active{color:var(--cyan)}.brand-dot{display:inline-block;width:9px;height:9px;background:var(--cyan);border-radius:50%;box-shadow:0 0 18px var(--cyan);margin-right:9px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;border:1px solid rgba(94,252,232,.45);background:rgba(94,252,232,.09);padding:.85rem 1.15rem;border-radius:12px;font-weight:650;transition:transform .2s,background .2s,border-color .2s;cursor:pointer}.btn:hover{transform:translateY(-2px);background:rgba(94,252,232,.16);border-color:var(--cyan)}.btn-secondary{border-color:var(--line);background:rgba(255,255,255,.035)}.btn-secondary:hover{border-color:rgba(167,139,250,.7);background:rgba(167,139,250,.1)}
+.eyebrow{color:var(--cyan);font-size:.75rem;letter-spacing:.19em;text-transform:uppercase;font-weight:700}.gradient-text{background:linear-gradient(100deg,var(--cyan),#b6a2ff 78%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.panel{background:linear-gradient(145deg,rgba(25,28,37,.96),rgba(17,19,25,.96));border:1px solid var(--line);border-radius:20px;box-shadow:0 18px 60px rgba(0,0,0,.18)}.panel-hover{transition:transform .25s,border-color .25s}.panel-hover:hover{transform:translateY(-4px);border-color:rgba(94,252,232,.28)}
+.grid-bg{background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,black,transparent 88%)}
+.hero-glow{position:absolute;width:360px;height:360px;pointer-events:none;border-radius:50%;background:radial-gradient(circle,rgba(94,252,232,.12),rgba(167,139,250,.07) 35%,transparent 70%);filter:blur(15px);transform:translate(-50%,-50%);z-index:0;opacity:.9}
+.code-window{overflow:hidden;background:#0b0c10;border:1px solid rgba(255,255,255,.1);border-radius:16px}.window-bar{height:40px;display:flex;align-items:center;gap:7px;padding:0 14px;border-bottom:1px solid var(--line);color:#7e8798;font-size:.75rem}.window-dot{width:8px;height:8px;border-radius:50%;background:#555b68}.code-content{padding:18px;white-space:pre;overflow:auto;font-size:.8rem;line-height:1.8;color:#c7d0df}.code-bad{color:#ff9f9f}.code-good{color:#8df8cb}
+.tag{display:inline-flex;align-items:center;border:1px solid var(--line);background:rgba(255,255,255,.035);padding:.35rem .65rem;border-radius:999px;color:#c4cbd8;font-size:.75rem}
+.filter-btn{padding:.55rem .85rem;border:1px solid var(--line);border-radius:10px;color:#aab1c0;background:rgba(255,255,255,.025);cursor:pointer}.filter-btn.active,.filter-btn:hover{color:var(--cyan);border-color:rgba(94,252,232,.45);background:rgba(94,252,232,.07)}
+input,textarea,select{width:100%;background:#0e1016;border:1px solid rgba(255,255,255,.12);border-radius:11px;padding:.85rem 1rem;color:var(--text);outline:none}input:focus,textarea:focus,select:focus{border-color:rgba(94,252,232,.65);box-shadow:0 0 0 3px rgba(94,252,232,.07)}input[type=checkbox],input[type=range]{width:auto;accent-color:var(--cyan)}label{color:#cbd1dc;font-size:.9rem}
+.range{width:100%;accent-color:var(--cyan)}.price-number{font-variant-numeric:tabular-nums;transition:opacity .15s,transform .15s}.price-number.bump{opacity:.45;transform:translateY(-2px)}
+.project-card[hidden]{display:none!important}.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s}.reveal.visible{opacity:1;transform:translateY(0)}
+.footer{border-top:1px solid var(--line);color:#8992a3}.success-screen{display:none}.success-screen.show{display:block}.form-screen.hide{display:none}
+.compare-wrap{position:relative;overflow:hidden;border-radius:16px;border:1px solid var(--line)}.compare-pane{min-height:310px}.compare-after{position:absolute;inset:0 auto 0 0;width:50%;overflow:hidden;border-right:2px solid var(--cyan);background:#0b0c10}.compare-after-inner{width:min(100%,720px);min-width:100%;height:100%}.compare-range{position:absolute;inset:auto 0 14px;width:calc(100% - 40px);margin:0 20px;z-index:3}
+@media(min-width:768px){.compare-pane{min-height:340px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Compact bilingual switcher */
+.language-switch{display:inline-flex;align-items:center;gap:3px;margin-left:auto;margin-right:auto;padding:4px;border:1px solid rgba(255,255,255,.11);border-radius:999px;background:rgba(255,255,255,.035);flex-shrink:0}
+.language-switch span{height:13px;width:1px;background:rgba(255,255,255,.16)}
+.language-option{font-size:.68rem;font-weight:750;letter-spacing:.08em;padding:.35rem .55rem;border-radius:999px;color:#929aaa;cursor:pointer;transition:background .2s,color .2s}
+.language-option.active{background:rgba(94,252,232,.14);color:var(--cyan)}
+@media(max-width:767px){.site-header .h-\[72px\]{gap:10px}.language-switch{margin-left:auto;margin-right:0}.site-header .brand-dot{margin-right:5px}.site-header .font-bold.tracking-tight{font-size:1rem}}
+
+/* Updated navbar: centered menu, language control at the far right. */
+.site-header .max-w-6xl > div:first-child{position:relative}
+.site-header .desktop-nav{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap}
+.site-header .language-switch{margin-left:auto;margin-right:0}
+@media(max-width:767px){.site-header .desktop-nav{position:static;transform:none}}
+/* Services & pricing cards */
+.service-card{position:relative;overflow:hidden}
+.service-card:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,var(--cyan),var(--purple));opacity:.8}
+.service-icon{display:grid;place-items:center;width:44px;height:44px;border-radius:13px;border:1px solid rgba(94,252,232,.25);background:rgba(94,252,232,.07);color:var(--cyan);font:700 .85rem ui-monospace,monospace}
+.service-points{display:grid;gap:.6rem;color:var(--muted);font-size:.85rem}
+.service-points li{display:flex;gap:.55rem;align-items:flex-start}
+.service-points li:before{content:"↗";color:var(--cyan);flex:none}
+.stack-list{display:flex;flex-wrap:wrap;gap:.65rem;max-width:460px}
+.stack-list span{padding:.65rem .85rem;border:1px solid rgba(255,255,255,.1);border-radius:12px;background:rgba(255,255,255,.035);font-size:.85rem;color:#dbe2ed}
+input[type=number][name=quantity]{max-width:150px}
+
+/* Calculator UX: center selected service and numeric value, hide irrelevant controls. */
+.calculator-field[hidden], [data-extra][hidden], [data-extras-heading][hidden] { display: none !important; }
+.calculator-centered-input { display: block; max-width: 180px; margin-inline: auto; text-align: center; text-align-last: center; font-variant-numeric: tabular-nums; }
+.calculator-service-select { display: block; width: 100%; max-width: 100%; min-height: 48px; padding: .75rem 2.5rem .75rem 1rem; text-align: left; text-align-last: left; cursor: pointer; }
+.calculator-service-field label { text-align: left; padding-left: .15rem; }
+
+/* Calculator service selector: wider, left-aligned, with comfortable inset. */
+.calculator-service-select {
+  box-sizing: border-box;
+  border-radius: 0.85rem;
+}
+
+
+/* Home hero: one clear, slightly wider services CTA */
+.hero-services-btn { min-width: 190px; justify-content: center; padding-left: 1.6rem; padding-right: 1.6rem; }
+
+/* Service cards: keep pricing aligned at the same bottom baseline. */
+.service-card{display:flex;flex-direction:column;height:100%}
+.service-card .service-price{margin-top:auto;padding-top:1.5rem}
+.service-card .service-points{margin-bottom:0}
+
+/* Service cards: keep pricing aligned at the same bottom baseline. */
+.service-card{display:flex;flex-direction:column;height:100%}
+.service-card .service-price{margin-top:auto;padding-top:1.5rem}
+.service-card .service-points{margin-bottom:0}
+
+
+/* Prevent a flash of the source-language text while the saved locale is applied. */
+html.lang-pending body { visibility: hidden; }
+
+/* Minimal pill-style navigation: clear hover/current states, without visual clutter. */
+.site-header .desktop-nav {
+  gap: .45rem !important;
+  padding: .35rem;
+  border: 1px solid rgba(255,255,255,.075);
+  border-radius: 999px;
+  background: rgba(255,255,255,.025);
+}
+.site-header .nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: .55rem .95rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: #aab1c0;
+  font-weight: 550;
+  transition: color .18s ease, background .18s ease, border-color .18s ease, transform .18s ease;
+}
+.site-header .nav-link:hover {
+  color: var(--text);
+  background: rgba(255,255,255,.055);
+  border-color: rgba(255,255,255,.09);
+}
+.site-header .nav-link.active {
+  color: var(--cyan);
+  background: rgba(94,252,232,.085);
+  border-color: rgba(94,252,232,.19);
+}
+.site-header .nav-link:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+.site-header [data-mobile-menu] {
+  padding: .25rem 0 1rem;
+}
+.site-header [data-mobile-menu] .nav-link {
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 42px;
+  padding: .65rem .9rem;
+  border-radius: 12px;
+  border-color: rgba(255,255,255,.07);
+  background: rgba(255,255,255,.025);
+}
+@media (max-width: 767px) {
+  .site-header .desktop-nav { display: none !important; }
+  .site-header [data-mobile-menu] { gap: .5rem; }
+  .site-header .language-switch { margin-left: auto; margin-right: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header .nav-link { transition: none; }
+}
+
+
+/* Compact page-count slider: mobile only, centered and synchronized with the numeric field. */
+.mobile-quantity-slider {
+  display: none;
+  width: min(100%, 360px);
+  box-sizing: border-box;
+  margin: .9rem auto .25rem;
+  accent-color: var(--cyan);
+  cursor: pointer;
+  touch-action: pan-y;
+}
+@media (max-width: 767px) {
+  .mobile-quantity-slider {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>
+    // Apply the saved language before the page paints; main.js translates content before revealing it.
+    (function () {
+      var lang = 'en';
+      try { lang = localStorage.getItem('portfolioLanguage') === 'ru' ? 'ru' : 'en'; } catch (_) {}
+      document.documentElement.lang = lang;
+      document.documentElement.classList.add('lang-pending');
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0e12">
+  <meta name="description" content="Свяжитесь с разработчиком для обсуждения сайта, скрипта или исправлений.">
+  <title>Контакты — Zuravlov</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/style.css">
+  <!-- Пометка: Измени title, description и имя на свое в VS Code -->
+</head>
+<body>
+
+<header class="site-header">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="h-[72px] flex items-center justify-between gap-5">
+      <a href="index.html" class="font-bold tracking-tight text-lg"><span class="brand-dot"></span>Zuravlov<span class="gradient-text">.dev</span></a>
+      <nav class="desktop-nav hidden md:flex items-center gap-7 text-sm" aria-label="Main navigation">
+        <a data-nav href="index.html" class="nav-link">Главная</a>
+        <a data-nav href="services.html" class="nav-link">Услуги и прайс</a>
+        <a data-nav href="contacts.html" class="nav-link">Контакты</a>
+      </nav>
+      <div class="language-switch" role="group" aria-label="Language selector"><button type="button" data-language="en" class="language-option active" aria-pressed="true">EN</button><span></span><button type="button" data-language="ru" class="language-option" aria-pressed="false">RU</button></div>
+      <button data-menu-toggle class="md:hidden btn btn-secondary !p-2.5" aria-label="Открыть меню" aria-expanded="false">☰</button>
+    </div>
+    <nav data-mobile-menu class="hidden md:hidden pb-4 flex-col gap-4 text-sm">
+      <a data-nav href="index.html" class="nav-link">Главная</a>
+      <a data-nav href="services.html" class="nav-link">Услуги и прайс</a>
+      <a data-nav href="contacts.html" class="nav-link">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-5 pt-16 md:pt-24">
+  <div class="max-w-3xl"><div class="eyebrow">Contact / Let's talk</div><h1 class="text-4xl md:text-6xl font-semibold tracking-tight mt-4">Есть идея?<br><span class="gradient-text">Давайте обсудим.</span></h1><p class="muted text-lg mt-5 leading-relaxed">Расскажи, что нужно сделать. Я отвечу, уточню детали и предложу следующие шаги.</p></div>
+  <section class="grid lg:grid-cols-[.8fr_1.2fr] gap-5 mt-10 items-start">
+    <aside class="space-y-4">
+      <div class="panel p-6"><div class="eyebrow">Direct links</div><h2 class="text-xl font-semibold mt-3">Удобный способ связи</h2><p class="muted mt-2 text-sm">Замени контакты ниже на свои перед публикацией.</p>
+        <a class="flex items-center justify-between border-b border-white/10 py-4 mt-2" href="https://t.me/IvanZuravlov1" target="_blank" rel="noreferrer"><span><span class="block text-sm muted">Telegram</span><span class="font-medium"><!-- Пометка: Измени Telegram на свое имя пользователя -->@IvanZuravlov1</span></span><span class="text-cyan-300">↗</span></a>
+        <a class="flex items-center justify-between py-4" href="mailto:mypcworkprofile@gmail.com"><span><span class="block text-sm muted">Email</span><span class="font-medium"><!-- Пометка: Измени почту на свою -->mypcworkprofile@gmail.com</span></span><span class="text-cyan-300">↗</span></a>
+      </div>
+      <div class="panel p-6"><div class="eyebrow">Typical response</div><div class="text-3xl font-semibold mt-3">24–48 <span class="text-base muted">часов</span></div><p class="muted text-sm mt-2">Обычно отвечаю в течение двух рабочих дней.</p></div>
+    </aside>
+    <div class="panel p-6 md:p-8">
+      <div class="form-screen">
+        <h2 class="text-xl font-semibold">Напиши сообщение</h2><p class="muted text-sm mt-2 mb-6">Поля со звёздочкой обязательны.</p>
+        <form data-contact-form>
+          <!-- Пометка: Вставь API-ключ Web3Forms вместо YOUR_WEB3FORMS_ACCESS_KEY -->
+          <input type="hidden" name="access_key" value="3f2cc9c7-b62a-4f15-90e1-8ceebfc22761">
+          <input type="hidden" name="subject" value="Новое сообщение с портфолио разработчика">
+          <input type="hidden" name="from_name" value="Developer Portfolio">
+          <div class="grid sm:grid-cols-2 gap-4"><div><label for="name" class="block mb-2">Имя *</label><input id="name" name="name" required autocomplete="name" placeholder="Как к тебе обращаться"></div><div><label for="email" class="block mb-2">Email *</label><input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com"></div></div>
+          <div class="mt-4"><label for="topic" class="block mb-2">Тема</label><select id="topic" name="topic"><option>Новый проект</option><option>Исправление / рефакторинг</option><option>Скрипт и автоматизация</option><option>Другой вопрос</option></select></div>
+          <div class="mt-4"><label for="message" class="block mb-2">Сообщение *</label><textarea id="message" name="message" rows="6" required placeholder="Коротко опиши задачу, сроки и желаемый результат…"></textarea></div>
+          <label class="flex items-start gap-3 mt-4 text-xs muted"><input type="checkbox" required class="mt-1"><span>Я согласен(на) на обработку данных, указанных в сообщении, для ответа на запрос.</span></label>
+          <p data-form-status class="hidden text-sm text-amber-200 mt-4" role="status"></p>
+          <button type="submit" class="btn w-full mt-5">Отправить сообщение ↗</button>
+        </form>
+      </div>
+      <div data-success-screen class="success-screen text-center py-12" role="status"><div class="mx-auto w-16 h-16 rounded-full bg-emerald-300/10 border border-emerald-300/30 flex items-center justify-center text-3xl text-emerald-300">✓</div><h2 class="text-2xl font-semibold mt-5">Успешно отправлено!</h2><p class="muted mt-3">Спасибо за сообщение. Я свяжусь с тобой в ближайшее время.</p><a href="index.html" class="btn btn-secondary mt-6">На главную</a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer mt-24">
+  <div class="max-w-6xl mx-auto px-5 py-8 flex flex-col sm:flex-row gap-4 justify-between text-sm">
+    <p>© <span data-year></span> <!-- Пометка: Измени это имя на свое в VS Code --> Zuravlov. Сделано с вниманием к деталям.</p>
+    <div class="flex gap-5"><a href="https://t.me/IvanZuravlov1" target="_blank" rel="noreferrer">Telegram ↗</a><a href="mailto:mypcworkprofile@gmail.com">Почта ↗</a></div>
+  </div>
+</footer>
+<script>document.querySelectorAll('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());</script>
+<script src="assets/main.js"></script>
+</body>
+</html>

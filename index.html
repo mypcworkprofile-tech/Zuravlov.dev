@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>
+    // Apply the saved language before the page paints; main.js translates content before revealing it.
+    (function () {
+      var lang = 'en';
+      try { lang = localStorage.getItem('portfolioLanguage') === 'ru' ? 'ru' : 'en'; } catch (_) {}
+      document.documentElement.lang = lang;
+      document.documentElement.classList.add('lang-pending');
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0e12">
+  <meta name="description" content="Портфолио разработчика: современные сайты, чистый код и автоматизация процессов.">
+  <title>Разработчик и автоматизация — Zuravlov</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/style.css">
+  <!-- Пометка: Измени title, description и имя на свое в VS Code -->
+</head>
+<body>
+
+<header class="site-header">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="h-[72px] flex items-center justify-between gap-5">
+      <a href="index.html" class="font-bold tracking-tight text-lg"><span class="brand-dot"></span>Zuravlov<span class="gradient-text">.dev</span></a>
+      <nav class="desktop-nav hidden md:flex items-center gap-7 text-sm" aria-label="Main navigation">
+        <a data-nav href="index.html" class="nav-link">Главная</a>
+        <a data-nav href="services.html" class="nav-link">Услуги и прайс</a>
+        <a data-nav href="contacts.html" class="nav-link">Контакты</a>
+      </nav>
+      <div class="language-switch" role="group" aria-label="Language selector"><button type="button" data-language="en" class="language-option active" aria-pressed="true">EN</button><span></span><button type="button" data-language="ru" class="language-option" aria-pressed="false">RU</button></div>
+      <button data-menu-toggle class="md:hidden btn btn-secondary !p-2.5" aria-label="Открыть меню" aria-expanded="false">☰</button>
+    </div>
+    <nav data-mobile-menu class="hidden md:hidden pb-4 flex-col gap-4 text-sm">
+      <a data-nav href="index.html" class="nav-link">Главная</a>
+      <a data-nav href="services.html" class="nav-link">Услуги и прайс</a>
+      <a data-nav href="contacts.html" class="nav-link">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+<main class="relative overflow-hidden">
+  <div class="grid-bg absolute inset-0 pointer-events-none"></div><div class="hero-glow" style="left:50%;top:250px"></div>
+  <section class="relative max-w-6xl mx-auto px-5 pt-20 md:pt-28 pb-20 md:pb-28">
+    <div class="max-w-3xl relative z-10">
+      <div class="eyebrow mb-6">Независимый разработчик · Remote friendly</div>
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-semibold tracking-[-.055em] leading-[1.06]">Создаю цифровые<br><span class="gradient-text">решения без шума.</span></h1>
+      <p class="mt-7 text-lg md:text-xl muted max-w-2xl leading-relaxed">Превращаю идеи в быстрые, удобные и надёжные интерфейсы. Чистый код, продуманный UX и автоматизация рутины.</p>
+      <div class="mt-7 mono text-sm text-slate-400 flex items-center gap-3"><span class="text-emerald-300">➜</span><span data-typewriter>Fullstack-разработчик</span><span class="animate-pulse text-cyan-300">▋</span></div>
+      <div class="mt-9 flex flex-wrap gap-3"><a class="btn hero-services-btn" href="services.html">Услуги и цены ↗</a></div>
+      <div class="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm muted"><span><span class="text-cyan-300">●</span> Mobile-first</span><span><span class="text-cyan-300">●</span> Быстрая загрузка</span><span><span class="text-cyan-300">●</span> GitHub Pages ready</span></div>
+    </div>
+  </section>
+  <section class="max-w-6xl mx-auto px-5 pb-10">
+    <div class="grid md:grid-cols-3 gap-4">
+      <article class="panel panel-hover p-6 reveal"><div class="eyebrow">01 / Build</div><h2 class="text-xl font-semibold mt-4">Разработка сайтов</h2><p class="muted mt-3 leading-relaxed">Лендинги и многостраничные сайты с адаптивной сеткой, доступной разметкой и аккуратными деталями.</p></article>
+      <article class="panel panel-hover p-6 reveal"><div class="eyebrow">02 / Fix</div><h2 class="text-xl font-semibold mt-4">Рефакторинг и правки</h2><p class="muted mt-3 leading-relaxed">Разбираюсь с багами, ускоряю интерфейсы и привожу сложный код к понятной структуре.</p></article>
+      <article class="panel panel-hover p-6 reveal"><div class="eyebrow">03 / Automate</div><h2 class="text-xl font-semibold mt-4">Скрипты и автоматизация</h2><p class="muted mt-3 leading-relaxed">Убираю повторяющиеся задачи с помощью небольших инструментов и интеграций.</p></article>
+    </div>
+  </section>
+  <section class="max-w-6xl mx-auto px-5 pt-14">
+    <div class="panel p-7 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6 reveal">
+      <div><div class="eyebrow">Есть задача?</div><h2 class="text-2xl md:text-3xl font-semibold mt-3">Давайте соберём что-то полезное.</h2><p class="muted mt-2">Опиши идею — обсудим решение и сроки.</p></div>
+      <a class="btn shrink-0" href="contacts.html">Связаться со мной ↗</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer mt-24">
+  <div class="max-w-6xl mx-auto px-5 py-8 flex flex-col sm:flex-row gap-4 justify-between text-sm">
+    <p>© <span data-year></span> <!-- Пометка: Измени это имя на свое в VS Code --> Zuravlov. Сделано с вниманием к деталям.</p>
+    <div class="flex gap-5"><a href="https://t.me/IvanZuravlov1" target="_blank" rel="noreferrer">Telegram ↗</a><a href="mailto:mypcworkprofile@gmail.com">Почта ↗</a></div>
+  </div>
+</footer>
+<script>document.querySelectorAll('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());</script>
+<script src="assets/main.js"></script>
+</body>
+</html>
